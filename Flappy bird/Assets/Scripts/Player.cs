@@ -8,27 +8,40 @@ using Zenject;
 
 public class Player : ITakeDamage
 {
-    private float _flyUpSpeed;
+    private Settings _settings;
+    private PlayerBehaviour _playerBehaviour;
+    private InputPanel _inputPanel;
 
-    [Inject] private PlayerBehaviour _playerBehaviour;
-    [Inject] private InputPanel _inputPanel;
 
-    
-    [Inject]
-    public Player(float flyUpSpeed)
+    public Player(PlayerBehaviour playerBehaviour, InputPanel inputPanel, Settings settings)
     {
-        _flyUpSpeed = flyUpSpeed;
-
+        _settings = settings;
+        _playerBehaviour = playerBehaviour;
+        _inputPanel = inputPanel;
+        
         _inputPanel.Clicked += FlyUp;
+        _inputPanel.Clicked += TurnOnGravity;
     }
 
     public void FlyUp()
     {
-        _playerBehaviour.AddVerticalVelocity(_flyUpSpeed);
+        _playerBehaviour.AddVerticalVelocity(_settings.flyUpSpeed);
     }
-
+    public void TurnOnGravity()
+    {
+        _playerBehaviour.SetGravityScale(_settings.gravityScale);
+        _inputPanel.Clicked -= TurnOnGravity;
+    }
     public void TakeDamage()
     {
         _inputPanel.Clicked -= FlyUp;
+    }
+
+
+    [Serializable]
+    public class Settings
+    {
+        public float flyUpSpeed;
+        public float gravityScale;
     }
 }

@@ -27,8 +27,9 @@ public class GameplayInstaller : MonoInstaller
     }
     private void BindPlayerBehaviour()
     {
-        var playerBehaviour = Container
-            .InstantiatePrefabForComponent<PlayerBehaviour>(playerPrefab, playerSpawnPoint.position, Quaternion.identity, null);
+        var playerBehaviour = 
+            Instantiate(playerPrefab, playerSpawnPoint.position, Quaternion.identity, null)
+            .GetComponent<PlayerBehaviour>();
 
         Container
             .Bind<PlayerBehaviour>()
@@ -37,12 +38,9 @@ public class GameplayInstaller : MonoInstaller
     }
     private void BindPlayer()
     {
-        var player = new Player(playerFlyUpSpeed);
-
         Container
             .Bind<Player>()
-            .FromInstance(player)
-            .AsSingle();
-        Container.QueueForInject(player);
+            .AsSingle()
+            .NonLazy();
     }
 }

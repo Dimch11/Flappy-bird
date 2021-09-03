@@ -504,7 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: e0424e9292a84e248a5a884285b03ced, type: 2}
   _monoInstallers:
   - {fileID: 6450578526930458036}
   _installerPrefabs: []
@@ -801,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324674206716317444, guid: e893a5651db304a4d891fa1b2f963fed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.729567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324674206716317444, guid: e893a5651db304a4d891fa1b2f963fed, type: 3}
       propertyPath: m_LocalRotation.w

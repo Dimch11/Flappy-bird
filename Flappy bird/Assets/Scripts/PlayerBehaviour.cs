@@ -12,6 +12,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _rb.velocity = new Vector2(0, velocity);
     }
+    public void SetGravityScale(float gravityScale)
+    {
+        _rb.gravityScale = gravityScale;
+    }
 
     public void Start()
     {
