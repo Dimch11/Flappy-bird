@@ -13,5 +13,14 @@ MonoBehaviour:
   m_Name: GameplaySettings
   m_EditorClassIdentifier: 
   playerSettings:
-    flyUpSpeed: 1
-    gravityScale: 0
+    flyUpSpeed: 15
+    gravityScale: 5
+  obstacleGeneratorSettings:
+    obstacleSpeed: 6
+    screenHeightInUnits: 10
+    startDistanceBetweenObstacles: 12
+    minDistanceBetweenObstacles: 8
+    stepToDecreaseDistanceBetweenObstacles: 0.2
+    startSpaceBetweenObstacleParts: 8
+    minSpaceBetweenObstacleParts: 5
+    stepToDecreaseSpaceBetweenObstacleParts: 0.1

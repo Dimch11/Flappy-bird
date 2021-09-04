@@ -11,19 +11,50 @@ public class GameplayInstaller : MonoInstaller
     public float playerFlyUpSpeed;
     public GameObject playerPrefab;
     public Transform playerSpawnPoint;
+    [Header("Generator")]
+    public ObstacleGeneratorBehaviour obstacleGeneratorBehaviour;
 
     public override void InstallBindings()
     {
+        BindAsyncProcessor();
+
         BindInputPanel();
+
+        BindObstacleGeneratorBehaviour();
+        BindObstacleGenerator();
+
         BindPlayerBehaviour();
         BindPlayer();
     }
+
+    private void BindAsyncProcessor()
+    {
+        Container
+            .Bind<AsyncProcessor>()
+            .FromNewComponentOnNewGameObject()
+            .AsSingle();
+    }
+
     private void BindInputPanel()
     {
         Container
             .Bind<InputPanel>()
             .FromInstance(inputPanel)
             .AsSingle();
+    }
+    private void BindObstacleGeneratorBehaviour()
+    {
+        Container
+            .Bind<ObstacleGeneratorBehaviour>()
+            .FromInstance(obstacleGeneratorBehaviour)
+            .AsSingle();
+    }
+    private void BindObstacleGenerator()
+    {
+        Container
+            .Bind<ObstacleGenerator>()
+            .AsSingle()
+            .NonLazy();
     }
     private void BindPlayerBehaviour()
     {

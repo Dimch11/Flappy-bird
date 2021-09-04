@@ -12,7 +12,6 @@ public class Player : ITakeDamage
     private PlayerBehaviour _playerBehaviour;
     private InputPanel _inputPanel;
 
-
     public Player(PlayerBehaviour playerBehaviour, InputPanel inputPanel, Settings settings)
     {
         _settings = settings;

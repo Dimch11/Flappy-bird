@@ -5,9 +5,11 @@ using Zenject;
 public class GameplaySettingsInstaller : ScriptableObjectInstaller<GameplaySettingsInstaller>
 {
     public Player.Settings playerSettings;
+    public ObstacleGenerator.Settings obstacleGeneratorSettings;
 
     public override void InstallBindings()
     {
         Container.BindInstance(playerSettings);
+        Container.BindInstance(obstacleGeneratorSettings);
     }
 }
