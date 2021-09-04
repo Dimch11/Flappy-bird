@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,8 @@ public class GameplayInstaller : MonoInstaller
     public float playerFlyUpSpeed;
     public GameObject playerPrefab;
     public Transform playerSpawnPoint;
-    [Header("Generator")]
-    public ObstacleGeneratorBehaviour obstacleGeneratorBehaviour;
+    [Header("Obstacles")]
+    public GameObject obstaclePrefab;
 
     public override void InstallBindings()
     {
@@ -20,11 +21,18 @@ public class GameplayInstaller : MonoInstaller
 
         BindInputPanel();
 
-        BindObstacleGeneratorBehaviour();
+        BindObstacleBehaviour();
         BindObstacleGenerator();
 
         BindPlayerBehaviour();
         BindPlayer();
+
+        BindObstacleFactory();
+    }
+
+    private void BindObstacleFactory()
+    {
+        Container.BindFactory<Obstacle, Obstacle.Factory>();
     }
 
     private void BindAsyncProcessor()
@@ -42,12 +50,12 @@ public class GameplayInstaller : MonoInstaller
             .FromInstance(inputPanel)
             .AsSingle();
     }
-    private void BindObstacleGeneratorBehaviour()
+
+    private void BindObstacleBehaviour()
     {
-        Container
-            .Bind<ObstacleGeneratorBehaviour>()
-            .FromInstance(obstacleGeneratorBehaviour)
-            .AsSingle();
+        Container.Bind<ObstacleBehaviour>()
+            .FromComponentInNewPrefab(obstaclePrefab)
+            .AsTransient();
     }
     private void BindObstacleGenerator()
     {
@@ -56,6 +64,7 @@ public class GameplayInstaller : MonoInstaller
             .AsSingle()
             .NonLazy();
     }
+
     private void BindPlayerBehaviour()
     {
         var playerBehaviour = 

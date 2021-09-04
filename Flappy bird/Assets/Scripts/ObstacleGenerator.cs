@@ -6,21 +6,21 @@ using UnityEngine;
 public class ObstacleGenerator
 {
     private Settings _settings;
-    private ObstacleGeneratorBehaviour _obstacleGeneratorBeh;
+    private Obstacle.Factory _obstacleFactory;
     private AsyncProcessor _asyncProcessor;
     private InputPanel _inputPanel;
 
     private bool _isGenerating = false;
 
-    private ObstacleBehaviour _curObstacle;
+    private Obstacle _curObstacle;
     private float _curDistanceBetweenObstacles;
     private float _curSpaceBetweenObstacleParts;
 
-    public ObstacleGenerator(ObstacleGeneratorBehaviour obstacleGeneratorBeh, Settings settings, 
+    public ObstacleGenerator(Obstacle.Factory obstacleFactory, Settings settings, 
         AsyncProcessor asyncProcessor, InputPanel inputPanel)
     {
         _settings = settings;
-        _obstacleGeneratorBeh = obstacleGeneratorBeh;
+        _obstacleFactory = obstacleFactory;
         _asyncProcessor = asyncProcessor;
         _inputPanel = inputPanel;
 
@@ -52,16 +52,16 @@ public class ObstacleGenerator
     }
     private void GenerateObstacle()
     {
-        _curObstacle = _obstacleGeneratorBeh.InstantiateObstacle();
+        _curObstacle = _obstacleFactory.Create();
+        _curObstacle.SetPosition(_settings.generationPoint);
         SetObstaclePartPositions();
         LaunchObstacle();
     }
     private void SetObstaclePartPositions()
     {
-        var spaceHeightPos = CalcSpaceHeightPos();
+        var spacePosFromBottom = CalcSpaceHeightPos();
 
-        _curObstacle.SetDownPartHeight(spaceHeightPos);
-        _curObstacle.SetUpPartHeight(spaceHeightPos + _curSpaceBetweenObstacleParts);
+        _curObstacle.SetPartHeights(spacePosFromBottom, spacePosFromBottom + _curSpaceBetweenObstacleParts);
     }
     private float CalcSpaceHeightPos()
     {
@@ -69,7 +69,7 @@ public class ObstacleGenerator
     }
     private void LaunchObstacle()
     {
-        _obstacleGeneratorBeh.SetObstacleSpeed(_curObstacle, _settings.obstacleSpeed);
+        _curObstacle.Launch(_settings.obstacleSpeed);
     }
 
     private void UpdateDifficulty()
@@ -104,6 +104,7 @@ public class ObstacleGenerator
     {
         public float obstacleSpeed;
         public float screenHeightInUnits;
+        public Vector2 generationPoint;
 
         [Header("Distance between obstacles")]
         public float startDistanceBetweenObstacles;
