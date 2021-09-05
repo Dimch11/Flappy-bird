@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,15 @@ public class PauseWindow
         _pauseWindowBehaviour = pauseWindowBehaviour;
 
         _pauseWindowBehaviour.resumeButton.onClick.AddListener(Resume);
-        _pauseWindowBehaviour.exitToMenuButton.onClick.AddListener(ChangeScene);
+        _pauseWindowBehaviour.exitToMenuButton.onClick.AddListener(LoadMainScene);
     }
 
-    private void ChangeScene()
+    public void Show()
+    {
+        _pauseWindowBehaviour.Show();
+    }
+
+    private void LoadMainScene()
     {
         SceneManager.LoadScene(Scenes.MainMenu);
     }

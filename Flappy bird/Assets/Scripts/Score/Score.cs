@@ -44,7 +44,7 @@ public class Score
     {
         PlayerPrefs.SetInt(_bestScoreNameInPlayerPrefs, score);
     }
-    private int GetBestScore()
+    public int GetBestScore()
     {
         return PlayerPrefs.GetInt(_bestScoreNameInPlayerPrefs);
     }

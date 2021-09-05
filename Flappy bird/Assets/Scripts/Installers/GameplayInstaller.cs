@@ -19,6 +19,7 @@ public class GameplayInstaller : MonoInstaller
     public ScoreTextBehaviour scoreTextBehaviour;
     public Button pauseButton;
     public PauseWindowBehaviour pauseWindow;
+    public GameOverWindowBehaviour gameOverWindow;
 
     public override void InstallBindings()
     {
@@ -44,6 +45,24 @@ public class GameplayInstaller : MonoInstaller
         BindButtonToPauseButton();
         BindPauseWindowBehaviour();
         BindPauseWindow();
+        BindGameOverWindowBehaviour();
+        BindGameOverWindow();
+    }
+
+    private void BindGameOverWindow()
+    {
+        Container
+            .Bind<GameOverWindow>()
+            .AsSingle()
+            .NonLazy();
+    }
+
+    private void BindGameOverWindowBehaviour()
+    {
+        Container
+            .Bind<GameOverWindowBehaviour>()
+            .FromInstance(gameOverWindow)
+            .AsSingle();
     }
 
     private void BindPauseWindow()
