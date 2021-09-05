@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-public class Player : ITakeDamage
+public class Player
 {
+    public event Action Damaged;
+
     private Settings _settings;
     private PlayerBehaviour _playerBehaviour;
     private InputPanel _inputPanel;
@@ -34,6 +36,7 @@ public class Player : ITakeDamage
     public void TakeDamage()
     {
         _inputPanel.Clicked -= FlyUp;
+        Damaged?.Invoke();
     }
 
 

@@ -20,6 +20,14 @@ public class Score
     private int _curScore;
     private const string _bestScoreNameInPlayerPrefs = "bestScore";
     private const int _scoreForPassingObstacle = 1;
+    private Player _player;
+
+    public Score(Player player)
+    {
+        _player = player;
+
+        _player.Damaged += UpdateBestScore;
+    }
 
     public void AddScoreForPassingThroughObstacle()
     {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class GameplayInstaller : MonoInstaller
@@ -16,6 +17,8 @@ public class GameplayInstaller : MonoInstaller
     public GameObject obstaclePrefab;
     [Header("Interface")]
     public ScoreTextBehaviour scoreTextBehaviour;
+    public Button pauseButton;
+    public PauseWindowBehaviour pauseWindow;
 
     public override void InstallBindings()
     {
@@ -30,9 +33,57 @@ public class GameplayInstaller : MonoInstaller
         BindPlayer();
 
         BindObstacleFactory();
+
         BindScore();
         BindScoreTextBehaviour();
+
         BindContainerText();
+
+        BindPauseManager();
+        BindPauseButton();
+        BindButtonToPauseButton();
+        BindPauseWindowBehaviour();
+        BindPauseWindow();
+    }
+
+    private void BindPauseWindow()
+    {
+        Container
+            .Bind<PauseWindow>()
+            .AsSingle()
+            .NonLazy();
+    }
+
+    private void BindPauseWindowBehaviour()
+    {
+        Container
+            .Bind<PauseWindowBehaviour>()
+            .FromInstance(pauseWindow)
+            .AsSingle();
+    }
+
+    private void BindPauseButton()
+    {
+        Container
+            .Bind<PauseButton>()
+            .AsSingle()
+            .NonLazy();
+    }
+
+    private void BindButtonToPauseButton()
+    {
+        Container
+            .Bind<Button>()
+            .FromInstance(pauseButton)
+            .AsSingle()
+            .WhenInjectedInto<PauseButton>();
+    }
+    private void BindPauseManager()
+    {
+        Container
+            .Bind<PauseManager>()
+            .AsSingle()
+            .NonLazy();
     }
 
     private void BindContainerText()
