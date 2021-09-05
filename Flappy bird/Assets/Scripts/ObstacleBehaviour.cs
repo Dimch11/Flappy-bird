@@ -6,8 +6,6 @@ using Zenject;
 
 public class ObstacleBehaviour : MonoBehaviour
 {
-    public event Action collideToPlayer;
-
     public GameObject obstacleUpPart;
     public GameObject obstacleDownPart;
 
@@ -26,13 +24,5 @@ public class ObstacleBehaviour : MonoBehaviour
     public void SetPosition(Vector2 position)
     {
         transform.position = position;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            collideToPlayer.Invoke();
-        }
     }
 }

@@ -335,6 +335,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 787941098}
+  - {fileID: 1647324347}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -533,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4314341964750306381, guid: 719b36f62709dfc4cb72189b70b27b12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.8
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 4314341964750306381, guid: 719b36f62709dfc4cb72189b70b27b12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -606,6 +607,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1647324343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647324347}
+  - component: {fileID: 1647324346}
+  - component: {fileID: 1647324345}
+  - component: {fileID: 1647324344}
+  m_Layer: 5
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1647324344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647324343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b36e4b3a87d54647a562a667d15490f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1647324345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647324343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 80
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1647324346
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647324343}
+  m_CullTransparentMesh: 1
+--- !u!224 &1647324347
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647324343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 711563101}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 167, y: -92}
+  m_SizeDelta: {x: 270.78003, y: 115.660034}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1841038655
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4314341964750306381, guid: 719b36f62709dfc4cb72189b70b27b12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.8
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4314341964750306381, guid: 719b36f62709dfc4cb72189b70b27b12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -837,6 +930,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1110144514}
     m_Modifications:
     - target: {fileID: 5652665300570286635, guid: 4ec6175baf6351f43b459da7ce254c18, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1647324344}
+    - target: {fileID: 5652665300570286635, guid: 4ec6175baf6351f43b459da7ce254c18, type: 3}
       propertyPath: inputPanel
       value: 
       objectReference: {fileID: 787941101}
@@ -856,6 +953,10 @@ PrefabInstance:
       propertyPath: playerSpawnPoint
       value: 
       objectReference: {fileID: 23303377}
+    - target: {fileID: 5652665300570286635, guid: 4ec6175baf6351f43b459da7ce254c18, type: 3}
+      propertyPath: scoreTextBehaviour
+      value: 
+      objectReference: {fileID: 1647324344}
     - target: {fileID: 5652665300570286635, guid: 4ec6175baf6351f43b459da7ce254c18, type: 3}
       propertyPath: obstacleGeneratorBehaviour
       value: 

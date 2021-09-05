@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public event Action CollidedToScoreTrigger;
+
+
     private Rigidbody2D _rb;
 
     public void AddVerticalVelocity(float velocity)
@@ -20,5 +23,13 @@ public class PlayerBehaviour : MonoBehaviour
     public void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Score"))
+        {
+            CollidedToScoreTrigger?.Invoke();
+        }
     }
 }

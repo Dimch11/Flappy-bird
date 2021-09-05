@@ -8,6 +8,6 @@ public class InputPanel : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Clicked.Invoke();
+        Clicked?.Invoke();
     }
 }

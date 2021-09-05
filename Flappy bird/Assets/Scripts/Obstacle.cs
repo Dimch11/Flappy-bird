@@ -13,8 +13,6 @@ public class Obstacle
     public Obstacle(ObstacleBehaviour obstacleBehaviour, Player player)
     {
         _obstacleBehaviour = obstacleBehaviour;
-
-        _obstacleBehaviour.collideToPlayer += player.TakeDamage;
     }
 
     public void SetPosition(Vector2 position)

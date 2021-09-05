@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2770017121100485745}
   - component: {fileID: 2770017121100485758}
   - component: {fileID: 3190863934110377500}
+  - component: {fileID: 2781304633243719025}
   m_Layer: 0
   m_Name: ObstaclePart
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,3 +100,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.013195632, y: -1.7182263}
   m_Size: {x: 1.0611016, y: 3.3370955}
   m_Direction: 0
+--- !u!114 &2781304633243719025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770017121100485759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29fd13f941f0f946b152ccf9a744758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

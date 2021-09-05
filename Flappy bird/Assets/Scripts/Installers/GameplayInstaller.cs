@@ -14,6 +14,8 @@ public class GameplayInstaller : MonoInstaller
     public Transform playerSpawnPoint;
     [Header("Obstacles")]
     public GameObject obstaclePrefab;
+    [Header("Interface")]
+    public ScoreTextBehaviour scoreTextBehaviour;
 
     public override void InstallBindings()
     {
@@ -28,6 +30,32 @@ public class GameplayInstaller : MonoInstaller
         BindPlayer();
 
         BindObstacleFactory();
+        BindScore();
+        BindScoreTextBehaviour();
+        BindContainerText();
+    }
+
+    private void BindContainerText()
+    {
+        Container
+            .Bind<ScoreText>()
+            .AsSingle()
+            .NonLazy();
+    }
+
+    private void BindScore()
+    {
+        Container
+            .Bind<Score>()
+            .AsSingle()
+            .NonLazy();
+    }
+    private void BindScoreTextBehaviour()
+    {
+        Container
+            .Bind<ScoreTextBehaviour>()
+            .FromInstance(scoreTextBehaviour)
+            .AsSingle();
     }
 
     private void BindObstacleFactory()
