@@ -27,6 +27,7 @@ public class PauseWindow
     private void LoadMainScene()
     {
         SceneManager.LoadScene(Scenes.MainMenu);
+        _pauseManager.Resume();
     }
 
     private void Resume()

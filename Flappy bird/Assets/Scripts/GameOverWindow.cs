@@ -41,6 +41,7 @@ public class GameOverWindow
     }
     private void LoadMainScene()
     {
+        _pauseManager.Resume();
         SceneManager.LoadScene(Scenes.MainMenu);
     }
 }
