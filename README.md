@@ -1,6 +1,6 @@
 # Flappy-bird (Котофлэп)
 
-![Gameplay](/ReadmeImages/Gameplay.gif)
+![Gameplay](/ReadmeGifs/Gameplay.gif)
 
 ## Задача
 Необходимо создать игру “Flappy Bird” (см. https://www.youtube.com/watch?v=fQoJZuBwrkU ) в Unity3d с использованием Di-контейнера Zenject. Задачу необходимо декомпозировать и декомпозицию предоставить в отчете.
